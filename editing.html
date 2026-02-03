@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editing — New Light Rise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NLR</div>
+        <div class="brand-text">
+          <div class="brand-title">New Light Rise</div>
+          <div class="brand-sub">Athlete-first media platform</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/videos">Videos</a>
+        <a href="/live">Live</a>
+        <a href="/editing">Editing</a>
+        <a href="/training">Training</a>
+        <a href="/coach">Coach Eval</a>
+        <a href="/college">College Fit</a>
+      </nav>
+      <div class="actions">
+        <button class="ghost">Sign In</button>
+        <button class="primary">Upload</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div>
+            <div class="auth-title">Sign in with Google</div>
+            <div class="auth-sub">
+              Save simple edits and keep your highlight plans organized.
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="primary" id="google-signin-btn">
+              Continue with Google
+            </button>
+            <button class="ghost" id="sign-out-btn">Sign out</button>
+          </div>
+          <div class="auth-status" id="auth-status">Not signed in</div>
+        </div>
+      </section>
+
+      <section class="split" id="editing">
+        <div class="copy">
+          <h2>Simple Editing</h2>
+          <p>
+            Add a video link, set a start and end time, and save a clean cut
+            plan. This keeps your highlights organized and ready to share.
+          </p>
+          <div class="result-history">
+            <div class="result-title">Saved Edit Plans</div>
+            <div class="history-list" id="edit-history"></div>
+          </div>
+        </div>
+        <div class="mock">
+          <div class="card">
+            <form class="college-form" id="edit-form">
+              <div class="form-grid">
+                <input name="title" placeholder="Highlight title" required />
+                <input name="videoUrl" placeholder="Video link (direct MP4 or YouTube)" required />
+                <input name="startTime" placeholder="Start time (seconds)" />
+                <input name="endTime" placeholder="End time (seconds)" />
+                <textarea
+                  name="notes"
+                  placeholder="Notes (key play, tags, music ideas)"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="hero-actions">
+                <button class="primary" type="submit">Save Edit Plan</button>
+                <button class="ghost" type="button" id="preview-edit">Preview Cut</button>
+              </div>
+              <div class="auth-status" id="edit-status"></div>
+            </form>
+            <div class="edit-preview">
+              <div class="result-title">Preview</div>
+              <video id="edit-video" class="video-embed" controls></video>
+              <div class="result-sub" id="edit-preview-note">Paste a direct video URL for preview.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>New Light Rise · Product UI prototype</div>
+      <div>Designed for desktop and mobile</div>
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

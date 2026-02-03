@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Fit — New Light Rise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NLR</div>
+        <div class="brand-text">
+          <div class="brand-title">New Light Rise</div>
+          <div class="brand-sub">Athlete-first media platform</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/videos">Videos</a>
+        <a href="/live">Live</a>
+        <a href="/editing">Editing</a>
+        <a href="/training">Training</a>
+        <a href="/coach">Coach Eval</a>
+        <a href="/college">College Fit</a>
+      </nav>
+      <div class="actions">
+        <button class="ghost" id="sign-in-btn">Sign In</button>
+        <button class="primary">Upload</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div>
+            <div class="auth-title">Sign in with Google</div>
+            <div class="auth-sub">
+              Save your athlete profile, run AI college-fit evaluations, and
+              share results with coaches.
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="primary" id="google-signin-btn">
+              Continue with Google
+            </button>
+            <button class="ghost" id="sign-out-btn">Sign out</button>
+          </div>
+          <div class="auth-status" id="auth-status">Not signed in</div>
+        </div>
+      </section>
+
+      <section class="split" id="college">
+        <div class="copy">
+          <h2>College Evaluation</h2>
+          <p>
+            Compare academic preferences, athletic performance, and fit against
+            real college data. The AI model weighs your sport, academics, and
+            stats to recommend schools like Georgia Tech when appropriate.
+          </p>
+        </div>
+        <div class="mock">
+          <div class="card">
+            <div class="college-header">
+              Which College Fits You Best?
+              <span>Compare academics and performance data.</span>
+            </div>
+            <form class="college-form" id="college-form">
+              <div class="form-grid">
+                <input name="athleteName" placeholder="Full Name" required />
+                <input name="sport" placeholder="Sport" required />
+                <input name="position" placeholder="Position" required />
+                <input name="height" placeholder="Height (e.g. 6'2\")" />
+                <input name="weight" placeholder="Weight (lbs)" />
+                <input name="gradYear" placeholder="Graduation Year" />
+                <input name="gpa" placeholder="GPA" required />
+                <input name="testScore" placeholder="SAT/ACT Score" />
+                <input name="location" placeholder="Location" />
+                <input name="budget" placeholder="Budget / Aid Needs" />
+                <input name="major" placeholder="Intended Major" required />
+                <input name="clubTeam" placeholder="Club/Team" />
+                <input name="stat1Name" placeholder="Stat 1 (Label)" />
+                <input name="stat1Value" placeholder="Stat 1 (Value)" />
+                <input name="stat2Name" placeholder="Stat 2 (Label)" />
+                <input name="stat2Value" placeholder="Stat 2 (Value)" />
+                <input name="stat3Name" placeholder="Stat 3 (Label)" />
+                <input name="stat3Value" placeholder="Stat 3 (Value)" />
+                <textarea
+                  name="keyStats"
+                  placeholder="Key stats (free text)"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="awards"
+                  placeholder="Awards & honors"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="courses"
+                  placeholder="Notable academic courses"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="coachNotes"
+                  placeholder="Coach notes"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="highlightLinks"
+                  placeholder="Highlight links (comma-separated)"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button class="primary" type="submit" id="evaluate-btn">
+                Run AI College Fit
+              </button>
+            </form>
+            <div class="result-panel" id="result-panel">
+              <div class="result-title">Recommended Colleges</div>
+              <div class="result-best" id="result-best">
+                Sign in and submit the form to see results.
+              </div>
+              <div class="best-hero" id="best-hero"></div>
+              <div class="hero-actions">
+                <button class="ghost" id="export-pdf-btn">Download PDF</button>
+                <a class="primary link-button" href="/report">Open Report</a>
+              </div>
+              <div class="print-summary" id="print-summary"></div>
+              <div class="result-grid" id="result-grid"></div>
+              <div class="result-history">
+                <div class="result-title">Recent Evaluations</div>
+                <div class="history-list" id="history-list"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>New Light Rise · Product UI prototype</div>
+      <div>Designed for desktop and mobile</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coach Evaluation — New Light Rise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NLR</div>
+        <div class="brand-text">
+          <div class="brand-title">New Light Rise</div>
+          <div class="brand-sub">Athlete-first media platform</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/videos">Videos</a>
+        <a href="/live">Live</a>
+        <a href="/editing">Editing</a>
+        <a href="/training">Training</a>
+        <a href="/coach">Coach Eval</a>
+        <a href="/college">College Fit</a>
+      </nav>
+      <div class="actions">
+        <button class="ghost">Sign In</button>
+        <button class="primary">Upload</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div>
+            <div class="auth-title">Sign in with Google</div>
+            <div class="auth-sub">
+              Save coach evaluations and keep them linked to athlete profiles.
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="primary" id="google-signin-btn">
+              Continue with Google
+            </button>
+            <button class="ghost" id="sign-out-btn">Sign out</button>
+          </div>
+          <div class="auth-status" id="auth-status">Not signed in</div>
+        </div>
+      </section>
+
+      <section class="split" id="coach">
+        <div class="copy">
+          <h2>Coach Evaluation Form</h2>
+          <p>
+            A structured feedback form for coaches to evaluate leadership,
+            communication, and athlete development with consistent rating
+            scales.
+          </p>
+          <div class="result-history">
+            <div class="result-title">Recent Coach Evaluations</div>
+            <div class="history-list" id="coach-history"></div>
+          </div>
+        </div>
+        <div class="mock">
+          <div class="card">
+            <form class="college-form" id="coach-form">
+              <div class="form-grid">
+                <input name="coachName" placeholder="Coach Name" required />
+                <input name="currentTeam" placeholder="Current Team" />
+                <input name="yearsExperience" placeholder="Years of Experience" />
+                <input name="sport" placeholder="Sport" />
+                <textarea
+                  name="coachingStyle"
+                  placeholder="Coaching Style Description"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="playerFocus"
+                  placeholder="Player Development Focus"
+                  rows="3"
+                ></textarea>
+                <textarea
+                  name="notes"
+                  placeholder="Additional notes"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="rating">
+                <div class="rating-label">Leadership</div>
+                <div class="stars" data-field="leadership"></div>
+                <input type="hidden" name="leadership" />
+              </div>
+              <div class="rating">
+                <div class="rating-label">Communication</div>
+                <div class="stars" data-field="communication"></div>
+                <input type="hidden" name="communication" />
+              </div>
+              <div class="rating">
+                <div class="rating-label">Technical Knowledge</div>
+                <div class="stars" data-field="technical"></div>
+                <input type="hidden" name="technical" />
+              </div>
+              <div class="hero-actions">
+                <button class="primary" type="submit">Save Evaluation</button>
+              </div>
+              <div class="auth-status" id="coach-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>New Light Rise · Product UI prototype</div>
+      <div>Designed for desktop and mobile</div>
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

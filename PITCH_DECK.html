@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Light Rise — One‑Page Pitch</title>
+    <style>
+      :root {
+        --ink: #0f1115;
+        --muted: #5e6472;
+        --accent: #c1954f;
+        --accent-deep: #a47733;
+        --panel: #ffffff;
+        --bg: #f7f4ef;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+      }
+
+      .page {
+        max-width: 900px;
+        margin: 32px auto;
+        padding: 32px;
+        background: var(--panel);
+        border-radius: 18px;
+        box-shadow: 0 30px 80px rgba(15, 17, 21, 0.18);
+        border: 1px solid rgba(193, 149, 79, 0.2);
+      }
+
+      .header {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent-deep);
+        margin-top: 22px;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      ul {
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: #f8f6f0;
+        border-radius: 12px;
+        padding: 12px;
+        border: 1px solid rgba(193, 149, 79, 0.2);
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        .page {
+          box-shadow: none;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="logo">NLR</div>
+        <div>
+          <h1>New Light Rise — One‑Page Pitch</h1>
+          <p>Athlete‑first platform for recruiting, training, and content.</p>
+        </div>
+      </div>
+
+      <h2>The Problem</h2>
+      <p>
+        Student‑athletes juggle recruiting, training, and content across
+        scattered tools. Coaches and recruiters lack a unified, credible view of
+        performance and academic fit.
+      </p>
+
+      <h2>The Solution</h2>
+      <p>
+        <strong>New Light Rise</strong> unifies highlights, live streams,
+        training, and college fit into one clean experience.
+      </p>
+
+      <h2>Core Features</h2>
+      <div class="grid">
+        <div class="card">College Fit + PDF reports</div>
+        <div class="card">Profile Dashboard</div>
+        <div class="card">Training Requests + Matching</div>
+        <div class="card">Coach Evaluations</div>
+        <div class="card">Video + Live Streams</div>
+        <div class="card">Editing Plans</div>
+      </div>
+
+      <h2>Why It Wins</h2>
+      <ul>
+        <li>Unified for athletes, coaches, and recruiters</li>
+        <li>Data‑backed evaluations</li>
+        <li>Fast workflows for recruiting timelines</li>
+      </ul>
+
+      <h2>Prototype Traction</h2>
+      <p>
+        Working MVP with Google sign‑in, data‑driven college fit, training
+        matching, live streams, and PDF reporting.
+      </p>
+
+      <h2>Next Step</h2>
+      <p>
+        Pilot with 2–3 local high schools or clubs; gather coach + recruiter
+        feedback.
+      </p>
+    </div>
+  </body>
+</html>

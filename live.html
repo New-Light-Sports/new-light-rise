@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live — New Light Rise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NLR</div>
+        <div class="brand-text">
+          <div class="brand-title">New Light Rise</div>
+          <div class="brand-sub">Athlete-first media platform</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/videos">Videos</a>
+        <a href="/live">Live</a>
+        <a href="/editing">Editing</a>
+        <a href="/training">Training</a>
+        <a href="/coach">Coach Eval</a>
+        <a href="/college">College Fit</a>
+      </nav>
+      <div class="actions">
+        <button class="ghost">Sign In</button>
+        <button class="primary">Upload</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div>
+            <div class="auth-title">Sign in with Google</div>
+            <div class="auth-sub">
+              Add live stream links and share them with coaches and fans.
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="primary" id="google-signin-btn">
+              Continue with Google
+            </button>
+            <button class="ghost" id="sign-out-btn">Sign out</button>
+          </div>
+          <div class="auth-status" id="auth-status">Not signed in</div>
+        </div>
+      </section>
+
+      <section class="split" id="live">
+        <div class="copy">
+          <h2>Live Streams</h2>
+          <p>
+            Add your live stream link (YouTube Live, Twitch, or any stream URL).
+            We’ll embed it for quick sharing.
+          </p>
+          <div class="live-metrics">
+            <div class="stat">
+              <div class="stat-value" id="viewer-count">0</div>
+              <div class="stat-label">Live viewers</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="live-status-pill">Offline</div>
+              <div class="stat-label">Stream status</div>
+            </div>
+          </div>
+          <div class="result-history">
+            <div class="result-title">Recent Live Streams</div>
+            <div class="history-list" id="live-history"></div>
+          </div>
+        </div>
+        <div class="mock">
+          <div class="card">
+            <form class="college-form" id="live-form">
+              <div class="form-grid">
+                <input name="title" placeholder="Stream title" required />
+                <input name="host" placeholder="Host / Channel name" />
+                <input name="liveUrl" placeholder="Live stream link" required />
+                <input name="status" placeholder="Status (Live / Scheduled)" />
+                <input name="scheduleDate" type="date" />
+                <input name="scheduleTime" type="time" />
+              </div>
+              <div class="hero-actions">
+                <button class="primary" type="submit">Add Live Stream</button>
+                <button class="ghost" type="button" id="go-live-btn">Go Live</button>
+              </div>
+              <div class="auth-status" id="live-status"></div>
+            </form>
+            <div class="result-panel">
+              <div class="result-title">Live Stream Player</div>
+              <div class="result-grid" id="live-results"></div>
+            </div>
+            <div class="result-panel">
+              <div class="result-title">Live Chat</div>
+              <div class="chat-panel">
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="chat-input">
+                  <input id="chat-name" placeholder="Your name" />
+                  <input id="chat-text" placeholder="Say something..." />
+                  <button class="primary" id="chat-send">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>New Light Rise · Product UI prototype</div>
+      <div>Designed for desktop and mobile</div>
+    </footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

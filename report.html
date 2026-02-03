@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluation Report — New Light Rise</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">NLR</div>
+        <div class="brand-text">
+          <div class="brand-title">New Light Rise</div>
+          <div class="brand-sub">Athlete-first media platform</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/videos">Videos</a>
+        <a href="/live">Live</a>
+        <a href="/editing">Editing</a>
+        <a href="/training">Training</a>
+        <a href="/coach">Coach Eval</a>
+        <a href="/college">College Fit</a>
+      </nav>
+      <div class="actions">
+        <button class="ghost" id="sign-in-btn">Sign In</button>
+        <button class="primary">Upload</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="auth-panel">
+        <div class="auth-card">
+          <div>
+            <div class="auth-title">Report Center</div>
+            <div class="auth-sub">
+              Load your latest evaluation and export a polished report.
+            </div>
+          </div>
+          <div class="auth-actions">
+            <button class="primary" id="load-report-btn">Load Latest</button>
+            <button class="ghost" id="export-pdf-btn">Download PDF</button>
+          </div>
+          <div class="auth-status" id="auth-status">Not signed in</div>
+        </div>
+      </section>
+
+      <section class="split">
+        <div class="copy">
+          <h2>Evaluation Report</h2>
+          <p>
+            This report pulls your most recent evaluation and formats it for
+            coaches, recruiters, and family.
+          </p>
+        </div>
+        <div class="mock">
+          <div class="card">
+            <div class="print-summary" id="print-summary"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>New Light Rise · Product UI prototype</div>
+      <div>Designed for desktop and mobile</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
