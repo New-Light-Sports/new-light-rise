@@ -32,6 +32,7 @@ app.use((req, _res, next) => {
 const routeMap = {
   "/": "index.html",
   "/profile": "profile.html",
+  "/community": "community.html",
   "/videos": "videos.html",
   "/live": "live.html",
   "/editing": "editing.html",
@@ -561,6 +562,63 @@ app.get("/api/training-requests", async (req, res) => {
     }));
 
     return res.status(200).json({ requests });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/api/users", async (req, res) => {
+  try {
+    if (!admin.apps.length || !firestore) {
+      return res
+        .status(500)
+        .json({ error: "Firebase admin not configured" });
+    }
+
+    const q = String(req.query.q || "").toLowerCase();
+    const sportFilter = String(req.query.sport || "").toLowerCase();
+    const gradFilter = String(req.query.gradYear || "").toLowerCase();
+    const majorFilter = String(req.query.major || "").toLowerCase();
+    const snapshot = await firestore
+      .collection("users")
+      .orderBy("updatedAt", "desc")
+      .limit(50)
+      .get();
+
+    const users = snapshot.docs
+      .map((doc) => doc.data()?.profile)
+      .filter(Boolean)
+      .map((profile) => ({
+        athleteName: profile.athleteName || "",
+        sport: profile.sport || "",
+        position: profile.position || "",
+        location: profile.location || "",
+        major: profile.major || "",
+        gpa: profile.gpa || "",
+        gradYear: profile.gradYear || "",
+        highlightLinks: profile.highlightLinks || [],
+        badges: [
+          profile.gpa ? `GPA ${profile.gpa}` : null,
+          profile.gradYear ? `Class of ${profile.gradYear}` : null,
+          profile.major ? profile.major : null,
+        ].filter(Boolean),
+      }))
+      .filter((profile) => {
+        const haystack = `${profile.athleteName} ${profile.sport} ${profile.position} ${profile.location} ${profile.major}`.toLowerCase();
+        if (sportFilter && !profile.sport.toLowerCase().includes(sportFilter)) {
+          return false;
+        }
+        if (gradFilter && !profile.gradYear.toLowerCase().includes(gradFilter)) {
+          return false;
+        }
+        if (majorFilter && !profile.major.toLowerCase().includes(majorFilter)) {
+          return false;
+        }
+        if (!q) return true;
+        return haystack.includes(q);
+      });
+
+    return res.status(200).json({ users });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
