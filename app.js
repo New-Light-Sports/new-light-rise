@@ -37,6 +37,7 @@ const printSummary = document.getElementById("print-summary");
 const profileForm = document.getElementById("profile-form");
 const profileStatus = document.getElementById("profile-status");
 const profileEvals = document.getElementById("profile-evals");
+const profileFollowers = document.getElementById("profile-followers");
 const loadReportBtn = document.getElementById("load-report-btn");
 const coachForm = document.getElementById("coach-form");
 const coachStatus = document.getElementById("coach-status");
@@ -346,6 +347,24 @@ const fetchHistory = async () => {
   }
 };
 
+const fetchFollowerCount = async () => {
+  if (!currentUser || !profileFollowers) return;
+  try {
+    const token = await currentUser.getIdToken();
+    const response = await fetch("/api/followers", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await response.json();
+    if (response.ok) {
+      profileFollowers.textContent = String(data.followerCount || 0);
+    }
+  } catch (error) {
+    console.warn("Follower count fetch failed:", error.message);
+  }
+};
+
 const fetchProfile = async () => {
   if (!currentUser || !db) return null;
   const docRef = doc(db, "users", currentUser.uid);
@@ -419,6 +438,9 @@ if (auth) {
     fetchHistory();
     if (profileForm) {
       loadProfile();
+    }
+    if (profileFollowers) {
+      fetchFollowerCount();
     }
     if (loadReportBtn) {
       loadLatestEvaluation();
