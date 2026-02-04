@@ -62,12 +62,13 @@ if (process.env.NCAA_DATA_PATH) {
 
 if (process.env.FIREBASE_SERVICE_ACCOUNT) {
   try {
-    const serviceAccount = JSON.parse(
-      fs.readFileSync(process.env.FIREBASE_SERVICE_ACCOUNT, "utf-8")
-    );
+    const raw = process.env.FIREBASE_SERVICE_ACCOUNT;
+    const serviceAccount = raw.trim().startsWith("{")
+      ? JSON.parse(raw)
+      : JSON.parse(fs.readFileSync(raw, "utf-8"));
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
-      projectId: process.env.FIREBASE_PROJECT_ID,
+      projectId: process.env.FIREBASE_PROJECT_ID || serviceAccount.project_id,
     });
   } catch (error) {
     console.warn("Firebase admin init failed:", error.message);
